@@ -8,7 +8,8 @@ public struct Components {
     public let responses: [ComponentObject<Response>]
     public let requestBodies: [ComponentObject<RequestBody>]
     public let headers: [ComponentObject<Header>]
-
+    public let objectExamples: [ComponentObject<ObjectExamplesExample>]
+    public let examples: [ComponentObject<ExamplesExample>]
 }
 
 extension Components {
@@ -20,6 +21,8 @@ extension Components {
         responses = []
         requestBodies = []
         headers = []
+        examples = []
+        objectExamples = []
     }
 }
 
@@ -29,7 +32,9 @@ extension Components: JSONObjectConvertible {
 
         func decode<T: Component>() throws -> [ComponentObject<T>] {
             var values: [ComponentObject<T>] = []
-            if let dictionary = jsonDictionary[T.componentType.rawValue] as? [String: Any] {
+            let componentTypeKey = T.componentType.rawValue
+            let dictionaryOptional = jsonDictionary[componentTypeKey] as? [String: Any]
+            if let dictionary = dictionaryOptional {
                 for (key, value) in dictionary {
                     if let dictionary = value as? [String: Any] {
                         let value = try T(jsonDictionary: dictionary)
@@ -46,6 +51,8 @@ extension Components: JSONObjectConvertible {
         responses = try decode()
         requestBodies = try decode()
         headers = try decode()
+        examples = try decode()
+        objectExamples = try decode()
     }
 }
 

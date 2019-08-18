@@ -45,3 +45,15 @@ extension RequestBody: Component {
 extension Header: Component {
     public static let componentType: ComponentType = .header
 }
+
+extension Examples: Component {
+    public static let componentType: ComponentType = .example
+}
+
+extension ExamplesExample: Component {
+    public static let componentType: ComponentType = .example
+}
+
+extension ObjectExamplesExample: Component {
+    public static let componentType: ComponentType = .example
+}

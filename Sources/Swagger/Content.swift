@@ -31,6 +31,10 @@ public struct Content {
     public var xmlSchema: Schema? {
         return getMediaItem(.xml)?.schema
     }
+
+    public var jsonSchemaExamples: Examples? {
+        return getMediaItem(.json)?.examples
+    }
 }
 
 extension Content: JSONObjectConvertible {
@@ -47,11 +51,13 @@ extension Content: JSONObjectConvertible {
 
 public struct MediaItem {
     public let schema: Schema
+    public let examples: Examples
 }
 
 extension MediaItem: JSONObjectConvertible {
 
     public init(jsonDictionary: JSONDictionary) throws {
         schema = try jsonDictionary.json(atKeyPath: "schema")
+        examples = try jsonDictionary.json(atKeyPath: "examples")
     }
 }

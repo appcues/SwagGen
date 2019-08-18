@@ -10,3 +10,7 @@
 /Specs/**/*.xcodeproj
 /Specs/**/Package.resolved
 /.vscode
+
+Pods
+xcshareddata
+xcuserdata

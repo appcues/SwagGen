@@ -1,9 +1,9 @@
 import Foundation
 
 #if !swift(>=4.2)
-    public protocol CaseIterable {
-        static var allCases: [Self] { get }
-    }
+public protocol CaseIterable {
+    static var allCases: [Self] { get }
+}
 #endif
 
 class ComponentResolver {
@@ -25,6 +25,7 @@ class ComponentResolver {
         resolve(components.requestBodies, resolve)
         resolve(components.headers, resolve)
         resolve(components.requestBodies, resolve)
+        resolve(components.examples, resolve)
 
         spec.paths.forEach { path in
             path.parameters.forEach(resolve)
@@ -35,6 +36,10 @@ class ComponentResolver {
                 if let requestBody = operation.requestBody {
                     resolveReference(requestBody, objects: components.requestBodies)
                     resolve(requestBody.value.content)
+                    if let examples =
+                        requestBody.value.content.getMediaItem(.json)?.examples {
+                        examples.allExamples.forEach(resolve)
+                    }
                 }
             }
         }
@@ -69,6 +74,21 @@ class ComponentResolver {
             case let .multiple(schemas): schemas.forEach(resolve)
             }
         default: break
+        }
+    }
+
+    private func resolve(_ examples: Examples) {
+        examples.allExamples.forEach(resolve)
+    }
+
+    private func resolve(_ examplesExample: ExamplesExample) {
+        resolve(examplesExample.exampleObject)
+    }
+
+    private func resolve(_ objectExamplesExample: PossibleReference<ObjectExamplesExample>) {
+        switch objectExamplesExample {
+        case let .reference(reference): resolveReference(reference, objects: components.objectExamples)
+        case .value(_): ()
         }
     }
 
@@ -114,6 +134,11 @@ class ComponentResolver {
         }
         for reference in response.response.value.headers.values {
             resolveReference(reference, objects: components.headers)
+        }
+
+        if let responseExamples =
+            response.response.value.content?.getMediaItem(.json)?.examples {
+            resolve(responseExamples)
         }
     }
 
