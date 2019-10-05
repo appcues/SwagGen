@@ -1,0 +1,27 @@
+{
+  "name": "CYaml",
+  "version": "4.2.0",
+  "summary": "CYaml",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/appcues/SwagGen",
+  "authors": {
+    "dodongo": "dgaxho@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/appcues/SwagGen.git",
+    "tag": "4.2.0"
+  },
+  "ios": {
+    "vendored_frameworks": "CYaml.framework"
+  },
+  "module_name": "CYaml",
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  }
+}
