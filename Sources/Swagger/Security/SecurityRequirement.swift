@@ -7,6 +7,6 @@ public struct SecurityRequirement: JSONObjectConvertible {
 
     public init(jsonDictionary: JSONDictionary) throws {
         name = jsonDictionary.keys.first!
-        scopes = try jsonDictionary.json(atKeyPath: .key(name))
+        scopes = try jsonDictionary.json(atKeyPath: name)
     }
 }

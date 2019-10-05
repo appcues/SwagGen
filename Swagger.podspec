@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.source                  = { :git => 'https://github.com/appcues/SwagGen.git', :tag => "#{s.version}" }
   s.module_name             = 'Swagger'
   s.source_files            = 'Sources/Swagger/**/*.{swift}'
-  s.dependency              'JSONUtilities'
+  s.dependency              'JSONUtilities', '6.0.1'
   s.dependency              'PathKit', '1.0.0'
   s.dependency              'Yams', '2.0.0'
 end

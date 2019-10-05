@@ -24,7 +24,7 @@ extension GroupSchema {
 
     public init(jsonDictionary: JSONDictionary, type: GroupType) throws {
         self.type = type
-        schemas = try jsonDictionary.json(atKeyPath: .key(type.propertyName))
+        schemas = try jsonDictionary.json(atKeyPath: type.propertyName)
         discriminator = jsonDictionary.json(atKeyPath: "discriminator")
     }
 }

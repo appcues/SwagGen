@@ -42,7 +42,7 @@ extension Content: JSONObjectConvertible {
     public init(jsonDictionary: JSONDictionary) throws {
         var mediaItems: [String: MediaItem] = [:]
         for key in jsonDictionary.keys {
-            let mediaItem: MediaItem = try jsonDictionary.json(atKeyPath: .key(key))
+            let mediaItem: MediaItem = try jsonDictionary.json(atKeyPath: key)
             mediaItems[key] = mediaItem
         }
         self.mediaItems = mediaItems

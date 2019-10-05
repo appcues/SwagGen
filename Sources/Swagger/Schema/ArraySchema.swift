@@ -17,9 +17,9 @@ extension ArraySchema: JSONObjectConvertible {
 
     public init(jsonDictionary: JSONDictionary) throws {
         let itemsKey = "items"
-        if let single: Schema = jsonDictionary.json(atKeyPath: .key(itemsKey)) {
+        if let single: Schema = jsonDictionary.json(atKeyPath: itemsKey) {
             items = .single(single)
-        } else if let multiple: [Schema] = jsonDictionary.json(atKeyPath: .key(itemsKey)) {
+        } else if let multiple: [Schema] = jsonDictionary.json(atKeyPath: itemsKey) {
             items = .multiple(multiple)
         } else {
             throw SwaggerError.invalidArraySchema(jsonDictionary)

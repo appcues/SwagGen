@@ -32,7 +32,7 @@ extension OAuth2Schema: JSONObjectConvertible {
     public init(jsonDictionary: JSONDictionary) throws {
         var flows: [FlowType: Flow] = [:]
         for type in FlowType.allCases {
-            if let flow: Flow = jsonDictionary.json(atKeyPath: .key(type.rawValue)) {
+            if let flow: Flow = jsonDictionary.json(atKeyPath: type.rawValue) {
                 flows[type] = flow
             }
         }

@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "JSONUtilities",
-        "repositoryURL": "https://github.com/yonaskolb/JSONUtilities.git",
+        "repositoryURL": "https://github.com/lucianomarisi/JSONUtilities.git",
         "state": {
           "branch": null,
-          "revision": "128d2ffc22467f69569ef8ff971683e2393191a0",
-          "version": "4.2.0"
+          "revision": "e35b5168eabae41000f4671ac350d5106db3589f",
+          "version": "6.0.1"
         }
       },
       {
