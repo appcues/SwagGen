@@ -13,7 +13,7 @@ let package = Package(
         .package(url: "https://github.com/jakeheis/SwiftCLI", .upToNextMinor(from: "5.2.2")),
         .package(url: "https://github.com/SwiftGen/StencilSwiftKit.git", from: "2.7.2"),
         .package(url: "https://github.com/jpsim/Yams.git", from: "1.0.0"),
-        .package(url: "https://github.com/yonaskolb/JSONUtilities.git", from: "4.1.0"),
+        .package(url: "https://github.com/yonaskolb/JSONUtilities.git", from: "4.2.0"),
         .package(url: "https://github.com/kylef/Spectre.git", from: "0.9.0"),
         .package(url: "https://github.com/onevcat/Rainbow.git", from: "3.1.0"),
     ],
