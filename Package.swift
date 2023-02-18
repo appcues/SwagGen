@@ -9,7 +9,7 @@ let package = Package(
         .library(name: "Swagger", targets: ["Swagger"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/kylef/PathKit.git", from: "0.9.0"),
+        .package(url: "https://github.com/kylef/PathKit.git", from: "1.0.1"),
         .package(url: "https://github.com/jakeheis/SwiftCLI", .upToNextMinor(from: "5.2.2")),
         .package(url: "https://github.com/SwiftGen/StencilSwiftKit.git", from: "2.7.2"),
         .package(url: "https://github.com/jpsim/Yams.git", from: "1.0.0"),
