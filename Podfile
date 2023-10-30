@@ -6,7 +6,7 @@ target 'Swagger' do
 
   pod 'JSONUtilities', :git => 'git@github.com:yonaskolb/JSONUtilities.git', :tag => '4.2.0'
   pod 'PathKit', '1.0.0'
-  pod 'Yams', '2.0.0'
+  pod 'Yams', '5.0.6'
   pod 'CYaml', :path => '.'
 end
 
